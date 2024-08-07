@@ -10,17 +10,19 @@
 
 <p>
 
-2. **Teams**
-- As requisições para os Teams podem ser localizadas através do caminho:
-    - /src/test/java/TeamsTests/
-
+2. **Leagues**
+- As requisições para os Teams podem ser localizadas através do caminho: `/src/test/java/TeamsTests/`
+  - Teste 1 - Requisição de todas as ligas `AND` liga específica;
+  - Teste 2 - Requisição de liga por id do país;
+  - Teste 3 - Requisição de validação da liga por data;
 <p>
 
-3. **Leagues**
-- As requisições para Leagues podem ser localizadas através do caminho: `/src/test/java/LeaguesTests/`
-  - Teste 1 - Chamando todas as leagues;
-  - Teste 2 - Chamando os 
-- 
+3. **Teams**
+- As requisições para Teams podem ser localizadas através do caminho: `/src/test/java/LeaguesTests/`
+  - Teste 1 - Requisição de todos os times `AND` buscando time por nome específico;
+  - Teste 2 - Requisição de time por id do país;
+  - Teste 3 - Requisição de time por Season (temporada);
+
 
   
 
