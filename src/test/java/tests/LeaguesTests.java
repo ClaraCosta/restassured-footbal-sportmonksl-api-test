@@ -1,29 +1,26 @@
 package tests;
 
+import com.github.javafaker.Faker;
 import config.AuthConfig;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.*;
-import com.github.javafaker.Faker;
 
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.given;
 import static io.restassured.config.LogConfig.logConfig;
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 
-public class TeamsTests {
+public class LeaguesTests {
 
-    private static TeamsTests footballTests;
+    private static LeaguesTests footballTests;
 
     public static Faker faker;
 
     public static RequestSpecification request;
 
     public static AuthConfig authConfig;
-
 
 
     @BeforeAll
@@ -41,45 +38,46 @@ public class TeamsTests {
             .contentType(ContentType.JSON);
 }
 
-    @DisplayName("Verify teams: All teams and specific search")
+    @DisplayName("Verify: All Leagues and specific league")
     @Order(1)
     @Test
-    public void VerifyTeams() {
+    public void VerifyLeagues() {
         request
                 .body("application/json")
                 .when()
-                .get("/teams")
+                .get("/leagues")
                 .then().log().all();
 
         request
                 .body("application/json")
                 .when()
-                .get("/teams/search/Hors")
+                .get("/leagues/search/Sup")
                 .then().log().all();
 
 
     }
 
-    @DisplayName("Verify Team by: Country Id")
+    @DisplayName("Verify League by: Country Id")
     @Order(2)
     @Test
-    public void VerifyTeamByCountryId() {
+    public void VerifyLeagueByCountryId() {
         request
                 .body("application/json")
                 .when()
-                .get("/countries/320")
+                .get("/leagues/countries/320")
                 .then().log().all();
 
     }
 
-    @DisplayName("Verify Team by: Season")
+
+    @DisplayName("Verify League by: Date")
     @Order(3)
     @Test
-    public void VerifyTeamBySeason() {
+    public void VerifyLeagueByDate() {
         request
                 .body("application/json")
                 .when()
-                .get("/seasons/196886")
+                .get("/leagues/date/2022-07-15")
                 .then().log().all();
 
     }

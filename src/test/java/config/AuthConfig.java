@@ -1,14 +1,35 @@
 package config;
 
-import io.restassured.RestAssured;
-import io.restassured.specification.RequestSpecification;
-
 public class AuthConfig {
 
-    private static final String BASE_URL = "";
+        private String authorization;
+        private String key;
 
-    public static RequestSpecification getRequestSpecification() {
-        return RestAssured.given()
-
+    public AuthConfig() {
+        String authorization;
+        String key;
     }
+
+    public String getAuthorization(){
+            return authorization;
+        }
+
+        public void setAuthorization(){
+            this.authorization = authorization;
+        }
+
+
+    public String getKey(){
+        return key;
+    }
+
+    public void setKey(){
+        this.key = key;
+    }
+
+        public void AuthConfig(String authorization, String key){
+            this.authorization = authorization;
+            this.key = key;
+        }
+
 }
